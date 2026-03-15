@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tiago Fitas — Oracle OPERA Cloud Specialist. Senior hospitality technology consultant. 20+ years. 100+ properties. Available globally.">
+  <meta name="keywords" content="Oracle OPERA Cloud, hospitality technology, hotel PMS, IFC8, OHIP, SAF-T, OPERA Cloud consultant">
+  <title>Tiago Fitas · Oracle OPERA Cloud Specialist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-deep: #050810;
+      --bg-navy: #0a0f1e;
+      --platinum: #c8d8e8;
+      --white: #ffffff;
+      --ice: #4a9eff;
+      --ice-glow: rgba(74,158,255,0.10);
+      --glass: rgba(10,15,30,0.55);
+      --glass-border: rgba(200,216,232,0.15);
+      --glass-border-h: rgba(200,216,232,0.32);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    #bg-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    nav, main, footer { position: relative; z-index: 10; }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── NAV ── */
+    #main-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .3s, backdrop-filter .3s, border-color .3s;
+    }
+    #main-nav.scrolled {
+      background: rgba(5,8,16,.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .nav-brand {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: .8125rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--platinum);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(200,216,232,.65);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--bg-deep);
+      background: var(--platinum);
+      padding: .625rem 1.5rem;
+      text-decoration: none;
+      transition: background .2s;
+      cursor: pointer;
+    }
+    .nav-cta:hover { background: var(--white); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: .5rem;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--platinum);
+    }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5,8,16,.97);
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--platinum);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .mobile-menu a:hover { color: var(--white); }
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: none; border: none;
+      color: var(--platinum);
+      cursor: pointer;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding-top: 80px;
+    }
+    .hero-eyebrow {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ice);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem; height: 1px;
+      background: var(--ice);
+      flex-shrink: 0;
+    }
+    .available-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .625rem;
+      padding: .4rem .875rem;
+      border: 1px solid rgba(200,216,232,.18);
+      background: rgba(200,216,232,.04);
+      font-size: .6875rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(200,216,232,.55);
+      margin-bottom: 1.75rem;
+    }
+    .pill-dot {
+      width: 6px; height: 6px;
+      background: var(--ice);
+      border-radius: 50%;
+      animation: dot-pulse 2s ease-in-out infinite;
+    }
+    @keyframes dot-pulse {
+      0%,100% { opacity:1; box-shadow: 0 0 0 0 rgba(74,158,255,.45); }
+      50% { opacity:.7; box-shadow: 0 0 0 5px rgba(74,158,255,0); }
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 6.5vw, 6.75rem);
+      font-weight: 700;
+      line-height: .98;
+      letter-spacing: -.03em;
+      color: var(--white);
+      display: block;
+    }
+    .hero-title-2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 6.5vw, 6.75rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--platinum);
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+    .hero-avail {
+      font-size: .75rem;
+      font-weight: 400;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(200,216,232,.4);
+      margin-bottom: 1.75rem;
+    }
+    .hero-desc {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(255,255,255,.55);
+      max-width: 460px;
+      margin-bottom: 2.75rem;
+    }
+    .hero-desc strong { color: var(--platinum); font-weight: 500; }
+    .hero-actions { display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: center; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .625rem;
+      background: var(--platinum);
+      color: var(--bg-deep);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 1rem 2.25rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background .2s, box-shadow .2s;
+    }
+    .btn-primary:hover {
+      background: var(--white);
+      box-shadow: 0 0 40px rgba(74,158,255,.35);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .625rem;
+      border: 1px solid var(--glass-border);
+      color: var(--platinum);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 1rem 2.25rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color .25s, background .25s, color .25s;
+      backdrop-filter: blur(10px);
+    }
+    .btn-secondary:hover {
+      border-color: var(--platinum);
+      background: rgba(200,216,232,.05);
+      color: var(--white);
+    }
+
+    #ico-canvas {
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 1;
+      display: block;
+      margin: 0 auto;
+      cursor: grab;
+    }
+    #ico-canvas:active { cursor: grabbing; }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      color: rgba(200,216,232,.25);
+      font-size: .625rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px; height: 2.5rem;
+      background: linear-gradient(to bottom, rgba(200,216,232,.25), transparent);
+      animation: hint-line 2s ease-in-out infinite;
+    }
+    @keyframes hint-line {
+      0%,100% { opacity:.3; transform: scaleY(1); transform-origin: top; }
+      50% { opacity:.7; transform: scaleY(.6); transform-origin: top; }
+    }
+
+    /* ── STATS ── */
+    #stats {
+      position: relative; z-index: 10;
+      padding: 3rem 2.5rem;
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+      background: rgba(5,8,16,.72);
+      backdrop-filter: blur(20px);
+    }
+    .stats-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 2rem;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-weight: 600;
+      color: var(--platinum);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(200,216,232,.45);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 2.5rem; }
+    .section-inner { max-width: 1400px; margin: 0 auto; }
+    .section-label {
+      font-size: .6875rem;
+      font-weight: 600;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--ice);
+      margin-bottom: .875rem;
+      display: flex;
+      align-items: center;
+      gap: .875rem;
+    }
+    .section-label::after {
+      content: '';
+      height: 1px;
+      width: 60px;
+      background: linear-gradient(to right, rgba(74,158,255,.35), transparent);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: .875rem;
+    }
+    .section-sub {
+      font-size: .9375rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.45);
+      max-width: 520px;
+      line-height: 1.85;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── SERVICES GRID ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1px;
+      background: var(--glass-border);
+    }
+    .service-card {
+      padding: 2.75rem 2.25rem;
+      background: rgba(8,13,26,.75);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: background .4s;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0; height: 2px;
+      background: linear-gradient(to right, var(--ice), var(--platinum));
+      transition: width .5s cubic-bezier(.16,1,.3,1);
+    }
+    .service-card:hover { background: rgba(10,15,30,.95); }
+    .service-card:hover::after { width: 100%; }
+    .service-num {
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .25em;
+      color: rgba(74,158,255,.4);
+      margin-bottom: 1.5rem;
+    }
+    .service-icon {
+      width: 2rem; height: 2rem;
+      color: var(--platinum);
+      opacity: .7;
+      margin-bottom: 1.5rem;
+    }
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: .75rem;
+      line-height: 1.3;
+    }
+    .service-desc {
+      font-size: .875rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.45);
+      line-height: 1.75;
+    }
+
+    /* ── CLIENTS ── */
+    #clients {
+      background: rgba(5,8,16,.5);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .clients-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .875rem;
+      justify-content: center;
+    }
+    .client-tag {
+      padding: 1.125rem 2.25rem;
+      border: 1px solid var(--glass-border);
+      color: rgba(200,216,232,.38);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      transition: all .3s;
+      backdrop-filter: blur(10px);
+      cursor: default;
+    }
+    .client-tag:hover {
+      color: var(--platinum);
+      border-color: rgba(200,216,232,.28);
+      background: rgba(200,216,232,.03);
+    }
+
+    /* ── CREDENTIALS ── */
+    .creds-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .cred-item {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.875rem 2.25rem;
+      background: rgba(10,15,30,.5);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(15px);
+      transition: border-color .3s, background .3s;
+      align-items: flex-start;
+    }
+    .cred-item:hover {
+      border-color: rgba(200,216,232,.25);
+      background: rgba(10,15,30,.8);
+    }
+    .cred-dot {
+      width: 7px; height: 7px;
+      background: var(--ice);
+      flex-shrink: 0;
+      margin-top: .4rem;
+    }
+    .cred-item h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: .9375rem;
+      font-weight: 600;
+      color: var(--platinum);
+      margin-bottom: .375rem;
+      letter-spacing: .01em;
+    }
+    .cred-item p {
+      font-size: .8125rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.4);
+      line-height: 1.65;
+    }
+
+    /* ── RATES ── */
+    #rates {
+      text-align: center;
+      background: linear-gradient(180deg, transparent, rgba(74,158,255,.03) 50%, transparent);
+    }
+    .rates-from {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(200,216,232,.4);
+      display: block;
+      margin-bottom: .75rem;
+    }
+    .rates-price {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -.03em;
+      line-height: 1;
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .rates-price span { color: var(--platinum); }
+    .rates-unit {
+      font-size: .75rem;
+      font-weight: 400;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(200,216,232,.4);
+      margin-bottom: 3rem;
+      display: block;
+    }
+    .rates-packages {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+    .rate-pkg {
+      padding: .875rem 2rem;
+      border: 1px solid var(--glass-border);
+      color: rgba(200,216,232,.5);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+      transition: all .3s;
+      cursor: default;
+    }
+    .rate-pkg:hover {
+      color: var(--platinum);
+      border-color: rgba(200,216,232,.28);
+      background: rgba(200,216,232,.03);
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: rgba(5,8,16,.5); }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--platinum);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .contact-info > p {
+      font-size: .9375rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.4);
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+    .contact-meta {
+      display: flex;
+      flex-direction: column;
+      gap: .875rem;
+    }
+    .contact-meta-row {
+      display: flex;
+      align-items: center;
+      gap: .875rem;
+      font-size: .875rem;
+      color: rgba(200,216,232,.5);
+    }
+    .contact-meta-row svg {
+      width: 1rem; height: 1rem;
+      color: var(--ice);
+      flex-shrink: 0;
+    }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.125rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.125rem; }
+    .form-group { display: flex; flex-direction: column; gap: .45rem; }
+    .form-group label {
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(200,216,232,.45);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(10,15,30,.72);
+      border: 1px solid var(--glass-border);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: .9375rem;
+      font-weight: 300;
+      padding: .9375rem 1.125rem;
+      outline: none;
+      transition: border-color .3s, background .3s, box-shadow .3s;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8d8e8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.125rem center;
+      padding-right: 3rem;
+      cursor: pointer;
+    }
+    .form-group select option { background: #0a0f1e; color: var(--white); }
+    .form-group textarea { min-height: 130px; resize: vertical; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(200,216,232,.2); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(74,158,255,.5);
+      background: rgba(10,15,30,.92);
+      box-shadow: 0 0 0 3px rgba(74,158,255,.08), inset 0 0 20px rgba(74,158,255,.03);
+    }
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .625rem;
+      background: var(--platinum);
+      color: var(--bg-deep);
+      font-family: 'Inter', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 1.125rem;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, box-shadow .2s;
+      width: 100%;
+      margin-top: .375rem;
+    }
+    .form-submit:hover {
+      background: var(--white);
+      box-shadow: 0 0 40px rgba(74,158,255,.3);
+    }
+    .form-submit:disabled { opacity: .55; cursor: not-allowed; }
+    .success-msg {
+      display: none;
+      padding: 2rem;
+      background: rgba(74,158,255,.07);
+      border: 1px solid rgba(74,158,255,.22);
+      color: var(--platinum);
+      font-size: .9375rem;
+      font-weight: 300;
+      line-height: 1.75;
+      text-align: center;
+    }
+    .success-msg strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .5rem;
+      color: var(--white);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.25rem 2.5rem;
+      border-top: 1px solid var(--glass-border);
+      background: rgba(5,8,16,.88);
+      backdrop-filter: blur(20px);
+    }
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy {
+      font-size: .8125rem;
+      font-weight: 300;
+      color: rgba(200,216,232,.35);
+      letter-spacing: .04em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: .8125rem;
+      font-weight: 400;
+      color: rgba(200,216,232,.35);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--platinum); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .rd1 { transition-delay: .1s; }
+    .rd2 { transition-delay: .2s; }
+    .rd3 { transition-delay: .3s; }
+    .rd4 { transition-delay: .4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 768px) {
+      #main-nav { padding: 1rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      section { padding: 4rem 1.5rem; }
+      #hero { padding: 0 1.5rem; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+        padding-top: 96px;
+        padding-bottom: 4rem;
+      }
+      .hero-eyebrow, .available-pill { justify-content: center; }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      #ico-canvas { max-width: 300px; order: -1; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .creds-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      #stats { padding: 2.5rem 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .clients-grid { gap: .625rem; }
+      .client-tag { padding: .875rem 1.375rem; font-size: .6875rem; }
+      .rates-packages { flex-direction: column; align-items: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+  <button class="mobile-close" id="menuClose" aria-label="Close menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#credentials" onclick="closeMobileMenu()">Credentials</a>
+  <a href="#clients" onclick="closeMobileMenu()">Clients</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- Nav -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-brand" aria-label="Tiago Fitas — Home">TIAGO FITAS</a>
+  <ul class="nav-links" role="list">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Engage Now</a>
+  <button class="nav-hamburger" id="menuOpen" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Introduction">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Oracle Certified · OPERA Cloud</div>
+        <div class="available-pill">
+          <span class="pill-dot" aria-hidden="true"></span>
+          Available for Engagements
+        </div>
+        <span class="hero-title">OPERA CLOUD</span>
+        <span class="hero-title-2">Specialist</span>
+        <p class="hero-avail">Available for global engagements · Remote · GMT+0</p>
+        <p class="hero-desc">
+          <strong>Oracle-certified</strong> hospitality technology consultant.
+          <strong>20+ years. 100+ properties.</strong>
+          Every major luxury brand.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">
+            Engage Now
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/tiagofitas76" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            View Profile
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
+        </div>
+      </div>
+      <div aria-hidden="true">
+        <canvas id="ico-canvas"></canvas>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">Scroll</div>
+  </section>
+
+  <!-- STATS -->
+  <div id="stats" role="region" aria-label="Key statistics">
+    <div class="stats-inner">
+      <div class="stat-item reveal"><div class="stat-num">20+</div><div class="stat-lbl">Years Experience</div></div>
+      <div class="stat-item reveal rd1"><div class="stat-num">100+</div><div class="stat-lbl">Properties Served</div></div>
+      <div class="stat-item reveal rd2"><div class="stat-num">5★</div><div class="stat-lbl">Luxury Brands</div></div>
+      <div class="stat-item reveal rd3"><div class="stat-num">Global</div><div class="stat-lbl">EMEA &amp; Worldwide</div></div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services" aria-label="Services offered">
+    <div class="section-inner">
+      <div class="section-label reveal">Services</div>
+      <h2 class="section-title reveal">Expert Capabilities</h2>
+      <p class="section-sub reveal">End-to-end OPERA Cloud expertise — from clean-sheet implementation to emergency intervention. Whatever the complexity, delivered with precision.</p>
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <h3 class="service-title">OPERA Cloud Implementation</h3>
+          <p class="service-desc">Full-lifecycle deployment from discovery and scoping through go-live. Property configuration, data migration, integration setup, and post-launch stabilisation.</p>
+        </div>
+
+        <div class="service-card reveal rd1">
+          <div class="service-num">02</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+          <h3 class="service-title">Interface Configuration</h3>
+          <p class="service-desc">IFC8 and OHIP interface design and deployment. POS, door locks, revenue management, channel managers, and third-party system connectivity.</p>
+        </div>
+
+        <div class="service-card reveal rd2">
+          <div class="service-num">03</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <h3 class="service-title">Fiscal Compliance</h3>
+          <p class="service-desc">SAF-T, CSV, and XML fiscal export development. Iberia specialist — Portugal and Spain tax authority compliance, certified audit file generation.</p>
+        </div>
+
+        <div class="service-card reveal rd1">
+          <div class="service-num">04</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          <h3 class="service-title">SUN Export Development</h3>
+          <p class="service-desc">Custom financial posting, journal entry automation, and SUN Systems integration. Revenue recognition and night audit reconciliation.</p>
+        </div>
+
+        <div class="service-card reveal rd2">
+          <div class="service-num">05</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <h3 class="service-title">Staff Training &amp; Certification</h3>
+          <p class="service-desc">Oracle-certified training delivery for front desk, reservations, F&amp;B, and management. Custom curriculum, LMS integration, and competency assessment.</p>
+        </div>
+
+        <div class="service-card reveal rd3">
+          <div class="service-num">06</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <h3 class="service-title">24/7 Emergency Support</h3>
+          <p class="service-desc">Rapid-response intervention for critical system failures. Night audit failures, interface outages, data corruption. When it cannot wait until morning.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section id="clients" aria-label="Client portfolio">
+    <div class="section-inner">
+      <div class="section-label reveal">Client Portfolio</div>
+      <h2 class="section-title reveal">Trusted by the World's<br>Finest Hotel Brands</h2>
+      <p class="section-sub reveal">A confidential record of engagements with some of the most demanding hospitality organisations on the planet.</p>
+      <div class="clients-grid reveal">
+        <div class="client-tag">Kempinski</div>
+        <div class="client-tag">Corinthia</div>
+        <div class="client-tag">Hyatt</div>
+        <div class="client-tag">Marriott</div>
+        <div class="client-tag">Hilton</div>
+        <div class="client-tag">IHG</div>
+        <div class="client-tag">Rosewood</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section id="credentials" aria-label="Credentials and qualifications">
+    <div class="section-inner">
+      <div class="section-label reveal">Qualifications</div>
+      <h2 class="section-title reveal">Credentials</h2>
+      <p class="section-sub reveal">Two decades of compounding expertise, certified at the highest level.</p>
+      <div class="creds-grid">
+
+        <div class="cred-item reveal">
+          <div class="cred-dot" aria-hidden="true"></div>
+          <div>
+            <h4>Oracle OPERA Cloud Certified SE</h4>
+            <p>Certified 2022, renewed 2024. Oracle's highest practitioner designation for OPERA Cloud implementation specialists.</p>
+          </div>
+        </div>
+
+        <div class="cred-item reveal rd1">
+          <div class="cred-dot" aria-hidden="true"></div>
+          <div>
+            <h4>20+ Years Hospitality Technology</h4>
+            <p>Continuous practice across independent properties, management companies, and global chains across EMEA and beyond.</p>
+          </div>
+        </div>
+
+        <div class="cred-item reveal rd1">
+          <div class="cred-dot" aria-hidden="true"></div>
+          <div>
+            <h4>15+ Years Management Experience</h4>
+            <p>Senior leadership roles in hotel operations and technology. Understands the business, not just the software.</p>
+          </div>
+        </div>
+
+        <div class="cred-item reveal rd2">
+          <div class="cred-dot" aria-hidden="true"></div>
+          <div>
+            <h4>5+ Years Software Implementation</h4>
+            <p>Dedicated implementation practice. 100+ property go-lives, complex integrations, and post-deployment optimisation.</p>
+          </div>
+        </div>
+
+        <div class="cred-item reveal rd2">
+          <div class="cred-dot" aria-hidden="true"></div>
+          <div>
+            <h4>Iberia Fiscal Specialist</h4>
+            <p>Deep expertise in Portuguese and Spanish tax compliance. SAF-T AT, SAF-T (PT), CSV and XML formats for AEAT.</p>
+          </div>
+        </div>
+
+        <div class="cred-item reveal rd3">
+          <div class="cred-dot" aria-hidden="true"></div>
+          <div>
+            <h4>EMEA &amp; Global Reach</h4>
+            <p>Active engagements across Europe, Middle East, and Africa. Remote-first, available for on-site deployment globally.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RATES -->
+  <section id="rates" aria-label="Engagement rates">
+    <div class="section-inner">
+      <div class="section-label reveal" style="justify-content:center;">Rates</div>
+      <span class="rates-from reveal">Engagements from</span>
+      <span class="rates-price reveal">€<span>150</span></span>
+      <span class="rates-unit reveal">Per hour · flexible arrangements available</span>
+      <div class="rates-packages reveal">
+        <div class="rate-pkg">Project-Based</div>
+        <div class="rate-pkg">Monthly Retainer</div>
+        <div class="rate-pkg">Emergency Response</div>
+        <div class="rate-pkg">Training Packages</div>
+      </div>
+      <div class="reveal rd2" style="display:flex;justify-content:center;">
+        <a href="#contact" class="btn-primary">
+          Discuss Your Requirements
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-label="Contact">
+    <div class="section-inner">
+      <div class="contact-layout">
+
+        <div class="contact-info reveal">
+          <div class="section-label">Get in Touch</div>
+          <h2 class="section-title" style="font-size:clamp(1.75rem,3vw,2.75rem);margin-bottom:1.5rem;">Start a<br>Conversation</h2>
+          <h3>Serious enquiries only.<br>Global engagements welcome.</h3>
+          <p>Whether you're planning a new OPERA Cloud deployment, navigating a complex integration, or facing a critical system issue — let's talk about what needs to be done.</p>
+          <div class="contact-meta">
+            <div class="contact-meta-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Response within 24 hours
+            </div>
+            <div class="contact-meta-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Remote · GMT+0 · Global
+            </div>
+            <div class="contact-meta-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.06a16 16 0 0 0 6 6l.92-1.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.27 15z"/></svg>
+              Emergency line available
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal rd1">
+          <form
+            id="contact-form"
+            class="contact-form"
+            action="https://formspree.io/f/xgonlolj"
+            method="POST"
+            novalidate
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your company" autocomplete="organization">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="engagement">Type of Engagement</label>
+              <select id="engagement" name="engagement" required>
+                <option value="" disabled selected>Select engagement type</option>
+                <option value="Implementation">OPERA Cloud Implementation</option>
+                <option value="Interface Configuration">Interface Configuration (IFC8/OHIP)</option>
+                <option value="Fiscal Compliance">Fiscal Compliance (SAF-T/CSV/XML)</option>
+                <option value="SUN Export Development">SUN Export Development</option>
+                <option value="Staff Training">Staff Training &amp; Certification</option>
+                <option value="Emergency Support">Emergency Support</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Describe your project, timeline, and requirements..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="form-submit">
+              Send Enquiry
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+          <div class="success-msg" id="success-msg" role="alert" aria-live="polite">
+            <strong>Enquiry Received.</strong>
+            Thank you for reaching out. Your requirements are in hand — I will respond within 24 hours. For urgent matters, please call directly.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <p class="footer-copy">© 2025 Tiago Fitas · Oracle OPERA Cloud Specialist · Remote · Global</p>
+    <ul class="footer-links" role="list">
+      <li><a href="https://linkedin.com/in/tiagofitas76" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ─────────────────────────────────────────
+     BACKGROUND CONSTELLATION
+  ───────────────────────────────────────── */
+  const bgCanvas = document.getElementById('bg-canvas');
+  const bgRenderer = new THREE.WebGLRenderer({ canvas: bgCanvas, alpha: true, antialias: false });
+  bgRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  bgRenderer.setSize(window.innerWidth, window.innerHeight);
+
+  const bgScene = new THREE.Scene();
+  const bgCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  bgCamera.position.z = 80;
+
+  const N = 85;
+  const DIST = 24;
+  const pos = [];
+  for (let i = 0; i < N; i++) {
+    pos.push(
+      (Math.random() - 0.5) * 160,
+      (Math.random() - 0.5) * 120,
+      (Math.random() - 0.5) * 80
+    );
+  }
+
+  // Nodes
+  const ptGeo = new THREE.BufferGeometry();
+  ptGeo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  const ptMat = new THREE.PointsMaterial({ color: 0xc8d8e8, size: 1.1, transparent: true, opacity: 0.55, sizeAttenuation: true });
+  bgScene.add(new THREE.Points(ptGeo, ptMat));
+
+  // Connections
+  const linePos = [];
+  for (let i = 0; i < N; i++) {
+    for (let j = i + 1; j < N; j++) {
+      const dx = pos[i*3] - pos[j*3];
+      const dy = pos[i*3+1] - pos[j*3+1];
+      const dz = pos[i*3+2] - pos[j*3+2];
+      if (Math.sqrt(dx*dx + dy*dy + dz*dz) < DIST) {
+        linePos.push(pos[i*3], pos[i*3+1], pos[i*3+2], pos[j*3], pos[j*3+1], pos[j*3+2]);
+      }
+    }
+  }
+  const lnGeo = new THREE.BufferGeometry();
+  lnGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePos, 3));
+  bgScene.add(new THREE.LineSegments(lnGeo, new THREE.LineBasicMaterial({ color: 0x4a9eff, transparent: true, opacity: 0.07 })));
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateBg() {
+    requestAnimationFrame(animateBg);
+    bgScene.rotation.y += 0.00022;
+    bgScene.rotation.x += 0.00007;
+    bgRenderer.render(bgScene, bgCamera);
+  }
+  if (!reducedMotion) animateBg();
+  else bgRenderer.render(bgScene, bgCamera);
+
+  window.addEventListener('resize', () => {
+    bgCamera.aspect = window.innerWidth / window.innerHeight;
+    bgCamera.updateProjectionMatrix();
+    bgRenderer.setSize(window.innerWidth, window.innerHeight);
+  }, { passive: true });
+
+
+  /* ─────────────────────────────────────────
+     ICOSAHEDRON
+  ───────────────────────────────────────── */
+  const icoEl = document.getElementById('ico-canvas');
+
+  function icoSize() {
+    return Math.min(icoEl.parentElement.offsetWidth, 520);
+  }
+  let sz = icoSize();
+  icoEl.width = sz;
+  icoEl.height = sz;
+
+  const icoRenderer = new THREE.WebGLRenderer({ canvas: icoEl, alpha: true, antialias: true });
+  icoRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  icoRenderer.setSize(sz, sz);
+  icoRenderer.setClearColor(0x000000, 0);
+
+  const icoScene = new THREE.Scene();
+  const icoCamera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+  icoCamera.position.z = 5.5;
+
+  // Main wireframe
+  const geo1 = new THREE.IcosahedronGeometry(1.8, 1);
+  const ico1 = new THREE.LineSegments(
+    new THREE.EdgesGeometry(geo1),
+    new THREE.LineBasicMaterial({ color: 0xc8d8e8, transparent: true, opacity: 0.88 })
+  );
+  icoScene.add(ico1);
+
+  // Outer glow halo
+  const geo2 = new THREE.IcosahedronGeometry(2.06, 1);
+  const ico2 = new THREE.LineSegments(
+    new THREE.EdgesGeometry(geo2),
+    new THREE.LineBasicMaterial({ color: 0x4a9eff, transparent: true, opacity: 0.14 })
+  );
+  icoScene.add(ico2);
+
+  // Inner core
+  const geo3 = new THREE.IcosahedronGeometry(0.88, 0);
+  const ico3 = new THREE.LineSegments(
+    new THREE.EdgesGeometry(geo3),
+    new THREE.LineBasicMaterial({ color: 0xc8d8e8, transparent: true, opacity: 0.28 })
+  );
+  icoScene.add(ico3);
+
+  let mouseX = 0, mouseY = 0;
+  let lerpX = 0, lerpY = 0;
+  let autoY = 0, autoX = 0;
+  let touchPrevX = 0, touchPrevY = 0;
+  let touchRotX = 0, touchRotY = 0;
+  let frame = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 0.6;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 0.6;
+  }, { passive: true });
+
+  icoEl.addEventListener('touchstart', (e) => {
+    touchPrevX = e.touches[0].clientX;
+    touchPrevY = e.touches[0].clientY;
+  }, { passive: true });
+
+  icoEl.addEventListener('touchmove', (e) => {
+    const dx = (e.touches[0].clientX - touchPrevX) * 0.012;
+    const dy = (e.touches[0].clientY - touchPrevY) * 0.012;
+    touchRotY += dx;
+    touchRotX += dy;
+    touchPrevX = e.touches[0].clientX;
+    touchPrevY = e.touches[0].clientY;
+  }, { passive: true });
+
+  function animateIco() {
+    requestAnimationFrame(animateIco);
+    frame++;
+    autoY += 0.0028;
+    autoX += 0.0009;
+    lerpX += (mouseX - lerpX) * 0.045;
+    lerpY += (mouseY - lerpY) * 0.045;
+    const pulse = 1 + Math.sin(frame * 0.018) * 0.012;
+    ico1.rotation.y = autoY + lerpX * 0.9 + touchRotY;
+    ico1.rotation.x = autoX + lerpY * 0.9 + touchRotX;
+    ico1.scale.setScalar(pulse);
+    ico2.rotation.y = autoY * 0.82 + lerpX * 0.9 + touchRotY;
+    ico2.rotation.x = autoX * 0.82 + lerpY * 0.9 + touchRotX;
+    ico3.rotation.y = -(autoY * 1.15) + lerpX * 0.9 + touchRotY;
+    ico3.rotation.x = -(autoX * 1.15) + lerpY * 0.9 + touchRotX;
+    icoRenderer.render(icoScene, icoCamera);
+  }
+  if (!reducedMotion) animateIco();
+  else icoRenderer.render(icoScene, icoCamera);
+
+  window.addEventListener('resize', () => {
+    sz = icoSize();
+    icoEl.width = sz;
+    icoEl.height = sz;
+    icoRenderer.setSize(sz, sz);
+  }, { passive: true });
+
+
+  /* ─────────────────────────────────────────
+     SCROLL REVEAL
+  ───────────────────────────────────────── */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+
+  /* ─────────────────────────────────────────
+     NAV SCROLL STATE
+  ───────────────────────────────────────── */
+  const nav = document.getElementById('main-nav');
+  function updateNav() { nav.classList.toggle('scrolled', window.scrollY > 50); }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+
+  /* ─────────────────────────────────────────
+     MOBILE MENU
+  ───────────────────────────────────────── */
+  window.closeMobileMenu = function () {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('menuOpen').setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+  document.getElementById('menuOpen').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.getElementById('menuOpen').setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('menuClose').addEventListener('click', window.closeMobileMenu);
+
+
+  /* ─────────────────────────────────────────
+     FORM SUBMISSION
+  ───────────────────────────────────────── */
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('form-submit');
+  const successEl = document.getElementById('success-msg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin .9s linear infinite" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Sending…';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+      } else {
+        throw new Error('failed');
+      }
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Send Enquiry <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+      alert('There was an issue sending your message. Please try again or reach out via LinkedIn.');
+    }
+  });
+
+}());
+</script>
+
+</body>
+</html>
