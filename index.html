@@ -1,50 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tiago Fitas — Senior OPERA Cloud Solutions Engineer. Hospitality technology specialist across OPERA Cloud, OPERA 5, IFC8, OHIP, fiscal compliance, data exports and SaaS delivery." />
-  <meta name="keywords" content="Tiago Fitas, Oracle OPERA Cloud, OPERA 5, hospitality technology, PMS implementation, OHIP, IFC8, SAF-T, Spain SII, hotel systems consultant" />
-  <title>Tiago Fitas · Senior OPERA Cloud Solutions Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#ffffff;--alt:#f7f8fb;--dark:#10213b;--navy:#1a2b4a;--gold:#c9a84c;--text:#0d0d0d;--muted:#606878;--border:#e6e8ec;--shadow:0 10px 40px rgba(13,13,13,.09)}
-    html{scroll-behavior:smooth} body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden} h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.08;letter-spacing:-.025em} a{color:inherit} #bg-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none} nav,main,footer{position:relative;z-index:10}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2.75rem;display:flex;align-items:center;justify-content:space-between;transition:.25s;background:rgba(255,255,255,.72);backdrop-filter:blur(14px);border-bottom:1px solid transparent} nav.scrolled{border-bottom-color:var(--border);background:rgba(255,255,255,.94)} .brand{font-weight:800;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--navy)} .nav-links{display:flex;gap:2rem;list-style:none}.nav-links a{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted)}.nav-links a:hover{color:var(--navy)} .nav-cta{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--navy);color:#fff;text-decoration:none;padding:.68rem 1.35rem}.hamb{display:none;background:none;border:0;gap:5px;flex-direction:column}.hamb span{display:block;width:23px;height:1.5px;background:var(--navy)}
-    .mobile{display:none;position:fixed;inset:0;z-index:200;background:rgba(255,255,255,.98);align-items:center;justify-content:center;flex-direction:column;gap:2rem}.mobile.open{display:flex}.mobile a{font-family:'Playfair Display',serif;font-size:2rem;text-decoration:none;color:var(--navy)}.close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:0;font-size:2rem;color:var(--navy)}
-    section{padding:6rem 2.75rem}.inner{max-width:1380px;margin:auto}.label{font-size:.68rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;display:flex;gap:.8rem;align-items:center}.label::after{content:'';height:1px;width:52px;background:var(--gold);opacity:.45}.title{font-size:clamp(2rem,4vw,3.4rem);margin-bottom:.9rem}.sub{font-size:.98rem;color:var(--muted);max-width:720px;font-weight:300;line-height:1.85;margin-bottom:3rem}
-    #hero{min-height:100vh;display:flex;align-items:center;padding:0 2.75rem}.hero{max-width:1380px;margin:auto;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:center;padding-top:92px}.eyebrow{font-size:.7rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem;display:flex;gap:.8rem;align-items:center}.eyebrow::before{content:'';width:2rem;height:1px;background:var(--gold)}.pill{display:inline-flex;align-items:center;gap:.6rem;padding:.45rem .9rem;border:1px solid rgba(26,43,74,.14);background:rgba(26,43,74,.04);font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(26,43,74,.65);margin-bottom:1.6rem}.dot{width:6px;height:6px;border-radius:50%;background:#2ecc71}.hero h1{font-size:clamp(3rem,6.4vw,6.7rem);font-weight:800;line-height:.96}.hero h1 em{display:block;font-weight:500;color:var(--navy)}.avail{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);opacity:.75;margin:1.3rem 0 1.5rem}.hero p{max-width:560px;color:var(--muted);font-size:1.05rem;font-weight:300;line-height:1.85}.hero p strong{color:var(--navy);font-weight:700}.actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.2rem}.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.8rem;text-decoration:none;text-transform:uppercase;letter-spacing:.13em;font-size:.78rem;font-weight:800;border:1.5px solid var(--navy)}.primary{background:var(--navy);color:#fff}.secondary{background:transparent;color:var(--navy)}#ico-canvas{width:100%;max-width:500px;aspect-ratio:1;display:block;margin:auto}.scroll{position:absolute;bottom:1.7rem;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(96,104,120,.45)}
-    #stats{padding:3rem 2.75rem;background:var(--alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.stats{max-width:1380px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}.stat{text-align:center}.stat strong{display:block;font-family:'Playfair Display',serif;font-size:clamp(2.1rem,3.5vw,3.4rem);color:var(--navy);line-height:1}.stat span{font-size:.7rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}.card{background:#fff;border:1px solid var(--border);padding:2.25rem;transition:.25s}.card:hover{box-shadow:var(--shadow);transform:translateY(-2px);border-color:transparent}.num{font-size:.62rem;letter-spacing:.25em;color:var(--gold);font-weight:800;margin-bottom:1.2rem}.card h3{font-size:1.25rem;margin-bottom:.8rem}.card p,.card li{font-size:.88rem;color:var(--muted);font-weight:300;line-height:1.75}.card ul{padding-left:1.1rem}.dark{background:var(--dark);color:#fff}.dark .title,.dark h3{color:#fff}.dark .sub,.dark p,.dark li{color:rgba(255,255,255,.68)}.dark .card{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.13)}.dark .card:hover{border-color:rgba(201,168,76,.45)}
-    #clients{background:var(--alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}.marquee{overflow:hidden;mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent)}.track{display:flex;width:max-content;animation:marquee 36s linear infinite}.logo{padding:1.25rem 2.8rem;border-right:1px solid var(--border);font-size:.8rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(26,43,74,.38);white-space:nowrap}@keyframes marquee{to{transform:translateX(-50%)}}
-    .timeline{display:grid;gap:1rem}.job{display:grid;grid-template-columns:260px 1fr;gap:2rem;padding:2rem;border:1px solid var(--border);background:#fff}.job time{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}.job h3{font-size:1.35rem;margin-bottom:.4rem}.job .role{font-size:.86rem;color:var(--navy);font-weight:800;margin-bottom:.8rem}.job ul{padding-left:1.1rem}.job li{color:var(--muted);font-weight:300;margin-bottom:.45rem}
-    .contact{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem}.contact-card{background:#fff;border:1px solid var(--border);padding:2rem}.contact-card p{color:var(--muted);font-weight:300;margin-bottom:1rem}.contact-card a{color:var(--navy);font-weight:800;text-decoration:none}.form{display:grid;gap:1rem}.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}label{font-size:.62rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}input,select,textarea{width:100%;padding:.95rem 1rem;border:1px solid var(--border);font:inherit;color:var(--text);background:#fff}textarea{min-height:135px;resize:vertical}button.submit{border:0;background:var(--navy);color:#fff;padding:1rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.success{display:none;padding:1.5rem;border:1px solid rgba(26,43,74,.18);background:rgba(26,43,74,.06);color:var(--navy)}
-    footer{padding:2rem 2.75rem;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted)}.footer{max-width:1380px;margin:auto;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.footer a{text-decoration:none;color:var(--navy);font-weight:700}.reveal{opacity:0;transform:translateY(24px);transition:.75s cubic-bezier(.16,1,.3,1)}.reveal.show{opacity:1;transform:none}
-    @media(max-width:980px){.grid3{grid-template-columns:1fr 1fr}.hero{grid-template-columns:1fr;text-align:center}.eyebrow,.pill{justify-content:center}.hero p{margin:auto}.actions{justify-content:center}#ico-canvas{max-width:310px;order:-1}.contact{grid-template-columns:1fr}.job{grid-template-columns:1fr}}
-    @media(max-width:720px){nav{padding:1rem 1.3rem}.nav-links,.nav-cta{display:none}.hamb{display:flex}section,#hero{padding-left:1.35rem;padding-right:1.35rem}.stats{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr}.row{grid-template-columns:1fr}.footer{display:block}.footer p{margin-bottom:.7rem}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tiago Fitas · OPERA Cloud Solutions Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0b0f14;
+  --text: #e6eaf0;
+  --muted: #8b93a3;
+  --gold: #c9a84c;
+}
+
+body {
+  margin:0;
+  font-family: Inter, sans-serif;
+  background: radial-gradient(circle at 70% 30%, rgba(201,168,76,.08), transparent 40%), #0b0f14;
+  color: var(--text);
+}
+
+/* layout */
+.container {
+  max-width:1200px;
+  margin:auto;
+  padding:40px;
+}
+
+/* hero */
+.hero {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  min-height:100vh;
+}
+
+h1 {
+  font-family:"Playfair Display";
+  font-size:64px;
+  margin:0;
+}
+
+h1 span {
+  color:var(--gold);
+}
+
+p {
+  color:var(--muted);
+  max-width:400px;
+}
+
+.btn {
+  display:inline-block;
+  padding:12px 24px;
+  margin-right:10px;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  text-decoration:none;
+}
+
+.btn:hover {
+  background:var(--gold);
+  color:#000;
+}
+
+/* globe */
+#globe {
+  width:100%;
+  height:500px;
+}
+</style>
 </head>
+
 <body>
-<canvas id="bg-canvas" aria-hidden="true"></canvas>
-<div class="mobile" id="mobile"><button class="close" id="close" aria-label="Close menu">×</button><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a></div>
-<nav id="nav"><a class="brand" href="#">TIAGO FITAS</a><ul class="nav-links"><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#credentials">Credentials</a></li><li><a href="#contact">Contact</a></li></ul><a class="nav-cta" href="ResumeCV.pdf">Download CV</a><button class="hamb" id="open" aria-label="Open menu"><span></span><span></span><span></span></button></nav>
-<main>
-<section id="hero"><div class="hero"><div><div class="eyebrow">Oracle Certified · OPERA Cloud</div><div class="pill"><span class="dot"></span>Available for senior solution engineering roles</div><h1>Senior OPERA Cloud <em>Solutions Engineer</em></h1><div class="avail">Lisbon · EMEA delivery · Remote / hybrid</div><p><strong>Hospitality technology specialist</strong> with 20+ years across hotel operations, PMS implementation, integrations, fiscal compliance and SaaS delivery across luxury hotel groups in EMEA.</p><div class="actions"><a href="#experience" class="btn primary">View Experience</a><a href="ResumeCV.pdf" class="btn secondary">Download CV</a><a href="https://linkedin.com/in/tiagofitas76" target="_blank" rel="noopener" class="btn secondary">LinkedIn</a></div></div><div><canvas id="ico-canvas"></canvas></div></div><div class="scroll">Scroll</div></section>
-<div id="stats"><div class="stats"><div class="stat reveal"><strong>20+</strong><span>Years Hospitality</span></div><div class="stat reveal"><strong>7+</strong><span>Years EMEA Delivery</span></div><div class="stat reveal"><strong>100+</strong><span>Properties Supported</span></div><div class="stat reveal"><strong>5</strong><span>Languages</span></div></div></div>
-<section id="profile"><div class="inner"><div class="label reveal">Profile</div><h2 class="title reveal">Hospitality systems delivery. Real hotel operations. Senior client-facing execution.</h2><p class="sub reveal">I combine OPERA Cloud and OPERA 5 platform knowledge with hotel operations experience from Crown, Hilton and Princess Cruises. My strongest areas are PMS configuration, integrations, fiscal compliance, custom exports, go-live support, training and technical stakeholder management.</p><div class="grid3"><div class="card reveal"><div class="num">01</div><h3>PMS & SaaS Delivery</h3><p>OPERA Cloud, OPERA 5, Fidelio and Infor CloudSuite HMS. Full lifecycle configuration from discovery to hypercare.</p></div><div class="card reveal"><div class="num">02</div><h3>Integrations</h3><p>IFC8, OHIP, POS, locks, CRS, RMS, channel managers, payments and back-office financial exports.</p></div><div class="card reveal"><div class="num">03</div><h3>Fiscal Compliance</h3><p>Iberia focus across Portugal SAF-T, Spain SII, tax mapping, country exports, legal reporting and audit file validation.</p></div></div></div></section>
-<section id="experience" class="dark"><div class="inner"><div class="label reveal">Experience</div><h2 class="title reveal">Professional timeline</h2><p class="sub reveal">Focused on systems delivery, operational credibility and client-facing technical work.</p><div class="timeline"><article class="job reveal"><time>Oct 2022 — Present</time><div><h3>HRS Hospitality & Retail Systems</h3><div class="role">Senior Service Delivery Specialist · Lisbon</div><ul><li>Lead OPERA Cloud implementations and migrations across EMEA luxury hotel groups.</li><li>Configure fiscal modules, interfaces, membership setup, rate configuration and custom exports.</li><li>Support 100+ hotel properties and resolve complex incidents across OPERA Cloud and OPERA 5.</li><li>Deliver training, demos, webinars and technical workshops for users, managers and sales teams.</li></ul></div></article><article class="job reveal"><time>Jan 2020 — Apr 2022</time><div><h3>Infor</h3><div class="role">Software Solutions Consultant · Melbourne</div><ul><li>Implemented Infor CloudSuite HMS SaaS solutions across Australia and New Zealand.</li><li>Delivered configuration, integration, data mapping, training and post-go-live support.</li><li>Built client-specific databases and mobility workflows to extend HMS functionality.</li></ul></div></article><article class="job reveal"><time>2010 — 2019</time><div><h3>Crown Towers, Crown Metropol, DoubleTree by Hilton, Brighton Savoy</h3><div class="role">Hotel Operations Leadership · Melbourne</div><ul><li>Managed front office, rooms division, VIP operations, guest recovery and hotel-wide incidents.</li><li>Used OPERA PMS v5 and Hilton OnQ in high-volume luxury and full-service environments.</li><li>Supervised cross-functional teams across hotel operations, security, concierge, housekeeping and F&B.</li></ul></div></article><article class="job reveal"><time>2005 — 2009</time><div><h3>Princess Cruises</h3><div class="role">Junior Assistant Purser · International</div><ul><li>Managed guest services, crew administration, shore excursions and financial operations at sea.</li><li>Worked across international itineraries in a high-pressure, multicultural environment.</li></ul></div></article></div></div></section>
-<section id="projects"><div class="inner"><div class="label reveal">Projects</div><h2 class="title reveal">Selected delivery work</h2><p class="sub reveal">Representative project areas based on production experience and independent technical work.</p><div class="grid3"><div class="card reveal"><div class="num">APERTURE</div><h3>Independent OPERA Cloud Reference</h3><p>Designed and shipped a technical reference site covering PMS modules, Iberia fiscal compliance, OXI XML samples, Oracle tutorial curation and consultancy positioning.</p></div><div class="card reveal"><div class="num">SII / R&A</div><h3>Spain fiscal export validation</h3><p>Worked on SII receiver naming, invoice/payment behaviour, deposit lines, tax type mapping, R&A export checks and Dynasoft coordination.</p></div><div class="card reveal"><div class="num">OHIP / IFC8</div><h3>Integration mapping</h3><p>Configured and tested interfaces across POS, CRS, channel managers, payment providers, locks, back-office and guest-facing systems.</p></div><div class="card reveal"><div class="num">NOR1</div><h3>Upgrade activation planning</h3><p>Structured activation approach covering OPERA Controls, mapping, integration alignment, testing, validation and billable project planning.</p></div><div class="card reveal"><div class="num">BECASTEL</div><h3>Membership integration analysis</h3><p>Reviewed OXI XML membership logic, programme code handling, level mapping and reservation/profile attachment behaviour.</p></div><div class="card reveal"><div class="num">SUN</div><h3>Financial exports</h3><p>Worked with back-office export structure, transaction code mapping, journal output validation and UAT to production alignment.</p></div></div></div></section>
-<section id="clients"><div class="inner"><div class="label reveal">Brand exposure</div><h2 class="title reveal">Luxury and enterprise hotel environments</h2><p class="sub reveal">Experience across Kempinski, Hyatt, Marriott, Hilton, IHG, Corinthia, Rosewood, Crown Resorts, Princess Cruises and other hospitality groups.</p></div><div class="marquee reveal"><div class="track"><div class="logo">Kempinski</div><div class="logo">Hyatt</div><div class="logo">Marriott</div><div class="logo">Hilton</div><div class="logo">IHG</div><div class="logo">Corinthia</div><div class="logo">Rosewood</div><div class="logo">Crown Resorts</div><div class="logo">Princess Cruises</div><div class="logo">Kempinski</div><div class="logo">Hyatt</div><div class="logo">Marriott</div><div class="logo">Hilton</div><div class="logo">IHG</div><div class="logo">Corinthia</div><div class="logo">Rosewood</div><div class="logo">Crown Resorts</div><div class="logo">Princess Cruises</div></div></div></section>
-<section id="credentials"><div class="inner"><div class="label reveal">Credentials</div><h2 class="title reveal">Certifications and skills</h2><p class="sub reveal">Oracle, hospitality systems, operations management and creative technology background.</p><div class="grid3"><div class="card reveal"><h3>Certifications</h3><ul><li>Oracle Solution Engineer Specialist OPERA Cloud</li><li>Hyatt OPERA PMS Certification</li><li>Marriott OPERA v5 Certification</li><li>IHG OPERA Cloud and OPERA v5 Certification</li><li>Infor Implementation Certification</li></ul></div><div class="card reveal"><h3>Technical stack</h3><ul><li>OPERA Cloud, OPERA 5, Fidelio</li><li>OHIP, IFC8, OPI, R&A</li><li>SQL, PL/SQL, Python, GitHub</li><li>BI Publisher, Cognos, exports</li><li>AI tools for workflow and documentation</li></ul></div><div class="card reveal"><h3>Languages</h3><ul><li>Portuguese native</li><li>English fluent</li><li>Spanish conversational</li><li>French conversational</li><li>Italian conversational</li></ul></div></div></div></section>
-<section id="contact" class="dark"><div class="inner"><div class="contact"><div class="reveal"><div class="label">Contact</div><h2 class="title">Start the conversation</h2><p class="sub">For senior OPERA Cloud, hospitality systems, solution engineering, implementation, integration and fiscal compliance roles.</p><div class="contact-card"><p><strong>Email</strong><br><a href="mailto:tiagofitas@hotmail.com">tiagofitas@hotmail.com</a></p><p><strong>LinkedIn</strong><br><a href="https://linkedin.com/in/tiagofitas76" target="_blank" rel="noopener">linkedin.com/in/tiagofitas76</a></p><p><strong>Location</strong><br>Lisbon, Portugal · GMT+0</p><p><a href="ResumeCV.pdf">Download CV</a></p></div></div><div class="reveal"><form id="contact-form" class="form" action="https://formspree.io/f/xgonlolj" method="POST"><div class="row"><div><label for="name">Full Name</label><input id="name" name="name" required autocomplete="name"></div><div><label for="company">Company</label><input id="company" name="company" autocomplete="organization"></div></div><div><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div><div><label for="topic">Topic</label><select id="topic" name="topic" required><option value="" selected disabled>Select topic</option><option>Solution Engineer role</option><option>Implementation role</option><option>OPERA Cloud project</option><option>Integration / OHIP / IFC8</option><option>Fiscal compliance</option><option>Other</option></select></div><div><label for="message">Message</label><textarea id="message" name="message" required placeholder="Describe the role, project or requirement."></textarea></div><button class="submit" type="submit" id="submit">Send Message</button></form><div id="success" class="success">Message received. I will reply directly by email.</div></div></div></div></section>
-</main><footer><div class="footer"><p>© 2026 Tiago Fitas · Senior OPERA Cloud Solutions Engineer</p><p><a href="ResumeCV.pdf">CV</a> · <a href="https://linkedin.com/in/tiagofitas76" target="_blank" rel="noopener">LinkedIn</a> · <a href="#contact">Contact</a></p></div></footer>
+
+<div class="container">
+  <div class="hero">
+
+    <div>
+      <h1>
+        Senior OPERA Cloud<br>
+        <span>Solutions Engineer</span>
+      </h1>
+
+      <p>
+        20+ years in hospitality technology. OPERA Cloud, integrations, fiscal compliance, SaaS delivery across EMEA.
+      </p>
+
+      <a href="#" class="btn">Experience</a>
+      <a href="#" class="btn">Download CV</a>
+    </div>
+
+    <canvas id="globe"></canvas>
+
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 <script>
-(function(){'use strict';const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});const mobile=document.getElementById('mobile');document.getElementById('open').onclick=()=>{mobile.classList.add('open');document.body.style.overflow='hidden'};document.getElementById('close').onclick=()=>{mobile.classList.remove('open');document.body.style.overflow=''};mobile.querySelectorAll('a').forEach(a=>a.onclick=()=>{mobile.classList.remove('open');document.body.style.overflow=''});const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));const form=document.getElementById('contact-form'),submit=document.getElementById('submit'),success=document.getElementById('success');form.addEventListener('submit',async e=>{e.preventDefault();submit.disabled=true;submit.textContent='Sending...';try{const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!r.ok)throw new Error();form.style.display='none';success.style.display='block'}catch{submit.disabled=false;submit.textContent='Send Message';alert('Message failed. Use email or LinkedIn.')}});if(!window.THREE)return;const bg=document.getElementById('bg-canvas'),br=new THREE.WebGLRenderer({canvas:bg,alpha:true,antialias:false});br.setPixelRatio(Math.min(devicePixelRatio,1.5));br.setSize(innerWidth,innerHeight);const bs=new THREE.Scene(),bc=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,1000);bc.position.z=80;const n=70,dist=22,p=[];for(let i=0;i<n;i++)p.push((Math.random()-.5)*160,(Math.random()-.5)*120,(Math.random()-.5)*80);const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.Float32BufferAttribute(p,3));bs.add(new THREE.Points(pg,new THREE.PointsMaterial({color:0x1a2b4a,size:1,transparent:true,opacity:.16,sizeAttenuation:true})));const lp=[];for(let i=0;i<n;i++)for(let j=i+1;j<n;j++){const dx=p[i*3]-p[j*3],dy=p[i*3+1]-p[j*3+1],dz=p[i*3+2]-p[j*3+2];if(Math.sqrt(dx*dx+dy*dy+dz*dz)<dist)lp.push(p[i*3],p[i*3+1],p[i*3+2],p[j*3],p[j*3+1],p[j*3+2])}const lg=new THREE.BufferGeometry();lg.setAttribute('position',new THREE.Float32BufferAttribute(lp,3));bs.add(new THREE.LineSegments(lg,new THREE.LineBasicMaterial({color:0x1a2b4a,transparent:true,opacity:.05})));function ab(){requestAnimationFrame(ab);bs.rotation.y+=.0002;bs.rotation.x+=.00006;br.render(bs,bc)}reduced?br.render(bs,bc):ab();const ico=document.getElementById('ico-canvas'),ir=new THREE.WebGLRenderer({canvas:ico,alpha:true,antialias:true}),is=new THREE.Scene(),ic=new THREE.PerspectiveCamera(45,1,.1,100);ic.position.z=5.5;function size(){const s=Math.min(ico.parentElement.offsetWidth,500);ir.setPixelRatio(Math.min(devicePixelRatio,2));ir.setSize(s,s);ico.width=s;ico.height=s}size();const a=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.8,1)),new THREE.LineBasicMaterial({color:0x1a2b4a,transparent:true,opacity:.82})),b=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.06,1)),new THREE.LineBasicMaterial({color:0xc9a84c,transparent:true,opacity:.18})),c=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(.88,0)),new THREE.LineBasicMaterial({color:0x1a2b4a,transparent:true,opacity:.25}));is.add(a,b,c);let f=0;function ai(){requestAnimationFrame(ai);f++;a.rotation.y+=.0032;a.rotation.x+=.0011;b.rotation.y+=.0025;b.rotation.x-=.0009;c.rotation.y-=.0038;c.rotation.x+=.0014;a.scale.setScalar(1+Math.sin(f*.018)*.012);ir.render(is,ic)}reduced?ir.render(is,ic):ai();addEventListener('resize',()=>{bc.aspect=innerWidth/innerHeight;bc.updateProjectionMatrix();br.setSize(innerWidth,innerHeight);size()},{passive:true})}());
+const canvas = document.getElementById('globe');
+
+const renderer = new THREE.WebGLRenderer({canvas, alpha:true});
+renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+camera.position.z = 4;
+
+const sphere = new THREE.Mesh(
+  new THREE.SphereGeometry(1.5, 64, 64),
+  new THREE.MeshBasicMaterial({color:0xc9a84c, wireframe:true})
+);
+
+scene.add(sphere);
+
+function animate() {
+  requestAnimationFrame(animate);
+  sphere.rotation.y += 0.003;
+  renderer.render(scene, camera);
+}
+animate();
 </script>
+
 </body>
 </html>
